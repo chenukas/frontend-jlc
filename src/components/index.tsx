@@ -9,17 +9,25 @@ import EditProduct from "./EditProduct/EditProduct";
 import Cart from './Cart/Cart';
 import ProductPanel from "./ProductPanel/ProductPanel";
 import ProductTable from "./ProductTable/ProductTable";
+import PaymentPanel from "./PaymentPanel/PaymentPanel";
+import PaymentTable from "./PaymentTable/PaymentTable";
+import Login from "./Login/Login";
+import Register from "./Register/Register";
 
 export {
     App,
-    Dashboard,
     Home,
     Cart,
+    Dashboard,
     Product,
     ProductPanel,
     Header,
     SideDrawer,
     PaperItem,
     EditProduct,
-    ProductTable
+    ProductTable,
+    PaymentPanel,
+    PaymentTable,
+    Login,
+    Register
 }

@@ -5,9 +5,11 @@ import { processRequest } from '../services/Api';
 import { GET_ALL_PRODUCTS, GET_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT } from '../constants/api';
 import { AnyAction } from 'redux';
 
+const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE.USER)!)
+
 const header = { 
     'Accept': 'application/json', 
-    'Authorization' : `Bearer ${localStorage.getItem(LOCAL_STORAGE.ACCESS_TOKEN)}` 
+    'Authorization' : `Bearer ${user && user.accessToken}` 
 }
 
 function* handleGetAllProducts(action: AnyAction): any {

@@ -15,7 +15,7 @@ class Home extends Component<any, any> {
     }
 
     render() {
-        const { productActions, productState: { products } } = this.props;
+        const { productActions, productState: { products }, authState: { user } } = this.props;
         return (
             <>
                 <Box sx={{ paddingTop: 10 }}>
@@ -32,7 +32,7 @@ class Home extends Component<any, any> {
                         }}
                     >
                         {products && products.map((product: any) => (
-                            <PaperItem key={product._id} product={product} productActions={productActions} isAdmin={true} />
+                            <PaperItem key={product._id} product={product} productActions={productActions} />
                         ))}
                     </Box>
                 </Box>

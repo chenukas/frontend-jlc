@@ -33,7 +33,7 @@ class Cart extends Component<any, any> {
                         }}
                     >
                         {products && products.map((e: any) => (
-                            <ProductItem key={e._id} id={e._id} title={e.title} desc={e.desc} img={e.img} categories={e.categories} price={e.price} inStock={e.inStock} productActions={productActions} isAdmin={true} />
+                            <ProductItem key={e._id} id={e._id} title={e.title} desc={e.desc} img={e.img} categories={e.categories} price={e.price} inStock={e.inStock} productActions={productActions} />
                         ))}
                     </Box>
                 </Box> */}

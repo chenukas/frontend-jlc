@@ -16,11 +16,10 @@ const Img = styled('img')({
 
 export interface Props {
     product: Product,
-    isAdmin: boolean,
     productActions: any
 }
 
-const EditProduct = ({ product, isAdmin, productActions }: Props) => {
+const EditProduct = ({ product, productActions }: Props) => {
 
     const navigate = useNavigate();
 

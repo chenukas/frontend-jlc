@@ -5,7 +5,8 @@ import { Home } from '../../components';
 
 function mapStateToProps (state: any) {
     return {
-        productState: state.productState
+        productState: state.productState,
+        authState: state.authState
     }
 }
 
