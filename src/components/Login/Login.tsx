@@ -3,7 +3,7 @@ import { Box, Toolbar, Typography, AppBar, Button, Menu, MenuItem, Grid, TextFie
 import { ShoppingBagOutlined, PermIdentityOutlined, LogoutOutlined, AccountBoxOutlined } from '@mui/icons-material';
 import { useNavigate } from "react-router";
 
-const Login = ({ authActions, message, error }: any) => {
+const Login = ({ user, authActions, message, error }: any) => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -19,6 +19,10 @@ const Login = ({ authActions, message, error }: any) => {
 
     const navigateHome = () => {
         navigate('/')
+    }
+
+    const navigateDashboard = () => {
+        navigate('/dashboard')
     }
 
     const clearFields = () => {
@@ -46,9 +50,11 @@ const Login = ({ authActions, message, error }: any) => {
                     <Typography variant="subtitle1" gutterBottom sx={{ color: '#4bb543' }}>
                         {message}!
                     </Typography>
-                    <div onClick={() => navigateHome()}>
+                   {user && user.isAdmin ? <div onClick={() => navigateDashboard()}>
+                        <Typography variant="overline" display="block" gutterBottom sx={{ color: '#8c8c8c', cursor: 'pointer', fontSize: 'medium' }}>Continue to dashboard</Typography>
+                    </div> : <div onClick={() => navigateHome()}>
                         <Typography variant="overline" display="block" gutterBottom sx={{ color: '#8c8c8c', cursor: 'pointer', fontSize: 'medium' }}>Continue shopping</Typography>
-                    </div>
+                    </div> }
                 </Grid> :
                     <Grid item xs={3}>
                         <Typography variant="h2" align='left' color={'#624c59'}>Login</Typography>

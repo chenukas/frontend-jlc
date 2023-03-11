@@ -30,9 +30,10 @@ function* handleLogin(action: AnyAction): any {
         };
         const { data } = yield call(processRequest, LOGIN, 'POST', requestPayload);
         if (data) {
-            const { _id, ...others } = data.data;
+            const { _id, accessToken, ...others } = data.data;
             yield put(authActions.loginSuccess(others, data.message));
             localStorage.setItem(LOCAL_STORAGE.USER, JSON.stringify(others));
+            localStorage.setItem(LOCAL_STORAGE.ACCESS_TOKEN, accessToken)
         }
     } catch (e: any) {
         const { response } = e || {};

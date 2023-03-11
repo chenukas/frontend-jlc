@@ -1,3 +1,4 @@
 export default {
-    USER: 'jlc_user'
+    USER: 'jlc_user',
+    ACCESS_TOKEN: 'jlc_access_token'
 }

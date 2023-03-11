@@ -5,11 +5,9 @@ import { processRequest } from '../services/Api';
 import { GET_ALL_PAYMENTS, PROCESS_PAYMENT } from '../constants/api';
 import { AnyAction } from 'redux';
 
-const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE.USER)!)
-
 const header = { 
     'Accept': 'application/json', 
-    'Authorization' : `Bearer ${user && user.accessToken}` 
+    'Authorization' : `Bearer ${localStorage.getItem(LOCAL_STORAGE.ACCESS_TOKEN)}` 
 }
 
 function* handleCreatePayment(action: AnyAction): any {

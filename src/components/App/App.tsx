@@ -37,7 +37,7 @@ class App extends Component<any, any> {
                 <Header user={user} logout={authActions.logout}/>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login authActions={authActions} message={message} error={error}/>} />
+                    <Route path="/login" element={<Login user={user} authActions={authActions} message={message} error={error}/>} />
                     <Route path="/register" element={<Register authActions={authActions} message={message} error={error}/>} />
                     <Route path="/dashboard/:view?" element={<ProtectedRouteWithAdmin><Dashboard /></ProtectedRouteWithAdmin>
                     } />
