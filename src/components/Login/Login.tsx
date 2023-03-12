@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, Toolbar, Typography, AppBar, Button, Menu, MenuItem, Grid, TextField, Divider } from "@mui/material";
-import { ShoppingBagOutlined, PermIdentityOutlined, LogoutOutlined, AccountBoxOutlined } from '@mui/icons-material';
+import { Typography, Button, Grid, TextField, Divider } from "@mui/material";
 import { useNavigate } from "react-router";
 
 const Login = ({ user, authActions, message, error }: any) => {
@@ -34,7 +33,7 @@ const Login = ({ user, authActions, message, error }: any) => {
         return () => {
             authActions.clearMessageAndError();
         }
-    }, [])
+    }, [authActions])
 
     return (
         <>

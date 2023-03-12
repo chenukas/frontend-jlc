@@ -1,4 +1,4 @@
-import { takeEvery, put, call, select } from 'redux-saga/effects';
+import { takeEvery, put, call } from 'redux-saga/effects';
 import { AUTH_ACTIONS, LOCAL_STORAGE } from '../constants';
 import { authActions } from '../actions';
 import { processRequest } from '../services/Api';
@@ -47,6 +47,7 @@ function* handleLogout(action: AnyAction) {
     try {
         yield put(authActions.logoutSuccess());
         localStorage.removeItem(LOCAL_STORAGE.USER);
+        localStorage.removeItem(LOCAL_STORAGE.ACCESS_TOKEN);
     } catch (e) {
         console.log(e);
     }

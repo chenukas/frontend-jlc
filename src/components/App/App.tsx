@@ -8,13 +8,13 @@ const ProtectedRouteWithAdmin = ({ children }: any) => {
     const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE.USER)!);
     const location = useLocation();
 
-    if (user && !user.isAdmin || !user) {
+    if ((user && !user.isAdmin) || !user) {
         return <Navigate to='/login' replace state={{ from: location }} />
     }
     return children;
 }
 
-const ProtectedRoute = ({ children }: any) => {
+/* const ProtectedRoute = ({ children }: any) => {
     const user = JSON.parse(localStorage.getItem(LOCAL_STORAGE.USER)!);
     const location = useLocation();
 
@@ -22,7 +22,7 @@ const ProtectedRoute = ({ children }: any) => {
         return <Navigate to='/login' replace state={{ from: location }} />
     }
     return children;
-}
+} */
 
 class App extends Component<any, any> {
     constructor(props: any) {
@@ -32,6 +32,7 @@ class App extends Component<any, any> {
 
     render() {
         const { productState: { product }, authState: { user , message, error }, productActions, authActions } = this.props;
+
         return (
             <Router>
                 <Header user={user} logout={authActions.logout}/>
