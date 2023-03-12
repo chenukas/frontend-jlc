@@ -1,4 +1,4 @@
-import { takeEvery, put, call, select } from 'redux-saga/effects';
+import { takeEvery, put, call } from 'redux-saga/effects';
 import { LOCAL_STORAGE, PRODUCT_ACTIONS } from '../constants';
 import { productActions } from '../actions';
 import { processRequest } from '../services/Api';
