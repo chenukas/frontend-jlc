@@ -5,7 +5,7 @@ export const emailValidation = (email: string = ''): boolean => {
     return false
 }
 
-export const lengthValidation = (str: string = '', minLength: number, maxLength: number): boolean => {
+export const lengthValidation = (str: string, minLength: number, maxLength: number): boolean => {
     if (str.length >= minLength && str.length <= maxLength && str.match(/^[a-zA-Z0-9]+$/)) {
         return true
     }

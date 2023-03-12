@@ -15,7 +15,7 @@ class Home extends Component<any, any> {
     }
 
     render() {
-        const { productActions, productState: { products }, authState: { user } } = this.props;
+        const { productActions, productState: { products } } = this.props;
         return (
             <>
                 <Box sx={{ paddingTop: 10 }}>

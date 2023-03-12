@@ -1,8 +1,5 @@
-import { useState, useEffect } from 'react';
-import { styled } from '@mui/material/styles';
-import { Box, Stack, Button, Grid, List, ListItem, IconButton, ListItemAvatar, Typography, TextField, Divider, FormControlLabel, Checkbox } from '@mui/material';
+import { Box, Grid, Typography, Divider } from '@mui/material';
 import { PaymentTable } from '..';
-import { uploadToFirebase } from '../../services/Firebase';
 
 const PaymentPanel = ({ paymentState, paymentActions}: any) => {
 
