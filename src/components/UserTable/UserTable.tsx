@@ -18,7 +18,7 @@ const UserTable = ({ users, userActions }: any) => {
 
     useEffect(() => {
         userActions.getAllUsers();
-    }, [])
+    }, [userActions])
 
     return (
         <><TableContainer component={Paper} sx={{ maxHeight: 600}}>

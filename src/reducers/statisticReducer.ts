@@ -5,7 +5,7 @@ export default function statisticReducer(
     state = INITIAL_STATE.STATISTIC_STATE,
     action: AnyAction
 ) {
-    const { userStats, orderStats, message, error } = action.payload || {};
+    const { userStats, orderStats, error } = action.payload || {};
 
     switch (action.type) {
         case STATISTIC_ACTIONS.GET_USER_STATISTIC_SUCCESS:

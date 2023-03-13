@@ -13,7 +13,7 @@ function* handleCreatePayment(action: AnyAction): any {
         if (data) {
             yield put(paymentActions.createPaymentSuccess(data.message));
             const state = yield select()
-            const { cartState: { products, qty, total, id }, authState: { user } } = state;
+            const { cartState: { products, total, id }, authState: { user } } = state;
             const payment = data.data
             const { address_line1, address_city, address_country, address_zip } = payment.source;
             yield put(orderActions.createOrder({
