@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Toolbar, Typography, AppBar, Button, Menu, MenuItem } from "@mui/material";
-import { ShoppingBagOutlined, PermIdentityOutlined, LogoutOutlined, AccountBoxOutlined } from '@mui/icons-material';
+import { ShoppingBagOutlined, PermIdentityOutlined, LogoutOutlined, AccountBoxOutlined, DashboardOutlined } from '@mui/icons-material';
 import logo from '../../img/logo192.png';
 import { useNavigate } from "react-router";
 
@@ -18,6 +18,10 @@ const Header = ({user, logout, qty}: any) => {
 
     const navigateLogin = () => {
         navigate('/login')
+    }
+
+    const navigateDashboard = () => {
+        navigate('/dashboard')
     }
 
     const navigateProfile = () => {
@@ -62,6 +66,7 @@ const Header = ({user, logout, qty}: any) => {
                         onClose={handleClose}
                     >
                         <MenuItem onClick={navigateProfile} sx={{color: '#624c59', fontWeight: 'bold', fontSize: 'small'}}><AccountBoxOutlined sx={{color: '#624c59'}}/>{' '}PROFILE</MenuItem>
+                     {user.isAdmin && <MenuItem onClick={navigateDashboard} sx={{color: '#624c59', fontWeight: 'bold', fontSize: 'small'}}><DashboardOutlined sx={{color: '#624c59'}}/>{' '}DASHBOARD</MenuItem>}
                         <MenuItem onClick={handleLogout} sx={{color: '#624c59', fontWeight: 'bold', fontSize: 'small'}}><LogoutOutlined sx={{color: '#624c59'}}/>{' '}LOGOUT</MenuItem>
                     </Menu>}
                     <Button sx={{ color: '#624c59' }} onClick={() => navigate('/carts')}><ShoppingBagOutlined />{' '}{qty}</Button>
