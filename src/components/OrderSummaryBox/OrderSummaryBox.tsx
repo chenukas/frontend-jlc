@@ -63,9 +63,9 @@ const OrderSummaryBox = ({ qty, total, createPayment, user }: any) => {
                     </Grid>
                 </Grid>
             </CardContent>
-            <CardActions>
+            {user && <CardActions>
                 <StripeCheckout name={'Jean\'s LC.'} billingAddress shippingAddress description={`You have to pay AUD${total}`} amount={total} token={onToken} stripeKey={KEY} />
-            </CardActions>
+            </CardActions>}
         </Card>
     );
 }
