@@ -6,7 +6,8 @@ import { App } from '../../components';
 function mapStateToProps (state: any) {
     return {
         productState: state.productState,
-        authState: state.authState
+        authState: state.authState,
+        cartState: state.cartState
     }
 }
 

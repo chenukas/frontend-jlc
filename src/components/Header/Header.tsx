@@ -4,7 +4,7 @@ import { ShoppingBagOutlined, PermIdentityOutlined, LogoutOutlined, AccountBoxOu
 import logo from '../../img/logo192.png';
 import { useNavigate } from "react-router";
 
-const Header = ({user, logout}: any) => {
+const Header = ({user, logout, qty}: any) => {
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -60,7 +60,7 @@ const Header = ({user, logout}: any) => {
                         <MenuItem onClick={handleClose} sx={{color: '#624c59', fontWeight: 'bold', fontSize: 'small'}}><AccountBoxOutlined sx={{color: '#624c59'}}/>{' '}PROFILE</MenuItem>
                         <MenuItem onClick={handleLogout} sx={{color: '#624c59', fontWeight: 'bold', fontSize: 'small'}}><LogoutOutlined sx={{color: '#624c59'}}/>{' '}LOGOUT</MenuItem>
                     </Menu>}
-                    <Button sx={{ color: '#624c59' }} onClick={() => navigate('/carts')}><ShoppingBagOutlined />{' '}0</Button>
+                    <Button sx={{ color: '#624c59' }} onClick={() => navigate('/carts')}><ShoppingBagOutlined />{' '}{qty}</Button>
                 </Toolbar>
             </AppBar>
         </Box>

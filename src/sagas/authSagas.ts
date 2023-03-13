@@ -1,6 +1,6 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { AUTH_ACTIONS, LOCAL_STORAGE } from '../constants';
-import { authActions } from '../actions';
+import { authActions, cartActions } from '../actions';
 import { processRequest } from '../services/Api';
 import { LOGIN, REGISTER } from '../constants/api';
 import { AnyAction } from 'redux';
@@ -30,10 +30,11 @@ function* handleLogin(action: AnyAction): any {
         };
         const { data } = yield call(processRequest, LOGIN, 'POST', requestPayload);
         if (data) {
-            const { _id, accessToken, ...others } = data.data;
+            const { accessToken, ...others } = data.data;
             yield put(authActions.loginSuccess(others, data.message));
             localStorage.setItem(LOCAL_STORAGE.USER, JSON.stringify(others));
             localStorage.setItem(LOCAL_STORAGE.ACCESS_TOKEN, accessToken)
+            yield put(cartActions.getCart(others._id));
         }
     } catch (e: any) {
         const { response } = e || {};
@@ -53,7 +54,7 @@ function* handleLogout(action: AnyAction) {
     }
 }
 
-export function* watchPaymentSagas() {
+export function* watchAuthSagas() {
     yield takeEvery(AUTH_ACTIONS.LOGIN, handleLogin);
     yield takeEvery(AUTH_ACTIONS.REGISTER, handleRegister);
     yield takeEvery(AUTH_ACTIONS.LOGOUT, handleLogout);

@@ -134,7 +134,7 @@ const EditProduct = ({ product, productActions }: Props) => {
                                 }} onChange={handleChangeCheckbox} />} label="In Stock" sx={{ color: '#1f1f20' }} />
                                 <Divider sx={{ mt: 5, mb: 2.5 }} />
                                 <Typography variant="h4" gutterBottom align='left' color={'#8585ad'}>
-                                    LKR{' '}{inputs.price}
+                                    AUD{' '}{inputs.price}
                                 </Typography>
                                 <TextField id="outlined-basic" label="Price" variant="outlined" name="price" value={inputs.price} sx={{ color: '#624c59', mb: 1 }} fullWidth type={"number"} onChange={handleChange} />
                                 <Button sx={{ color: '#624c59', border: '1px solid #624c59', marginRight: 1 }} onClick={() => handleOnSubmit()}>Save</Button>
