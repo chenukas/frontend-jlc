@@ -64,3 +64,10 @@ export function clearMessageAndError(): ActionResponse {
         payload: {}
     }
 }
+
+export function clearState(): ActionResponse {
+    return {
+        type: AUTH_ACTIONS.CLEAR_STATE,
+        payload: {}
+    }
+}

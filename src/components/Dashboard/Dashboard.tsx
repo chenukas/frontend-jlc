@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { SideDrawer, ProductPanel, PaymentPanel } from "../../components";
+import { SideDrawer, ProductPanel, PaymentPanel, OrderPanel, UserPanel, StatisticPanel } from "../../components";
 import { Box, Typography, CssBaseline } from "@mui/material";
 import { withNavigationParamsHOC } from "../../hoc";
 
@@ -9,8 +9,18 @@ class Dashboard extends Component<any, any> {
         this.state = {};
     }
 
+    componentDidMount(): void {
+        const { productState, paymentState, orderState, productActions , paymentActions, orderActions, userActions, statisticActions } = this.props;
+        productActions.getAllProducts();
+        paymentActions.getAllPayments();
+        orderActions.getAllOrders();
+        userActions.getAllUsers();
+        statisticActions.getUserStatistics();
+        statisticActions.getOrderStatistics();
+    }
+
     renderViews = (view: string) => {
-        const { productState, paymentState, productActions , paymentActions } = this.props;
+        const { productState, paymentState, orderState, userState, productActions , paymentActions, orderActions, userActions, statisticState, statisticActions } = this.props;
 
         switch (view) {
             case 'products':
@@ -20,44 +30,14 @@ class Dashboard extends Component<any, any> {
                 </>);
             case 'users':
                 return (<>
-                        <Typography paragraph>
-                            This is users
-                        </Typography>
-                        <Typography paragraph>
-                            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-                            eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-                            neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-                            tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-                            sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-                            tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-                            gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-                            et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-                            tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-                            eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-                            posuere sollicitudin aliquam ultrices sagittis orci a.
-                        </Typography>
+                        <UserPanel userState={userState} userActions={userActions} />
 
                 </>);
             case 'orders':
                 return (<>
-                        <Typography paragraph>
-                            This is orders
-                        </Typography>
-                        <Typography paragraph>
-                            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-                            eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-                            neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-                            tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-                            sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-                            tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-                            gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-                            et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-                            tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-                            eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-                            posuere sollicitudin aliquam ultrices sagittis orci a.
-                        </Typography>
+                    <OrderPanel orderState={orderState} orderActions={orderActions} />
 
-                </>);
+            </>);
             case 'payments':
                 return (<>
                         <PaymentPanel paymentState={paymentState} paymentActions={paymentActions} />
@@ -65,22 +45,7 @@ class Dashboard extends Component<any, any> {
                 </>);
             default:
                 return (<>
-                        <Typography paragraph>
-                            This is overview
-                        </Typography>
-                        <Typography paragraph>
-                            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-                            eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-                            neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-                            tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-                            sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-                            tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-                            gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-                            et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-                            tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-                            eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-                            posuere sollicitudin aliquam ultrices sagittis orci a.
-                        </Typography>
+                        <StatisticPanel statisticState={statisticState} statisticActions={statisticActions} />
 
                 </>);
 

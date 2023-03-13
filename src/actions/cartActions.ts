@@ -106,3 +106,10 @@ export function updateLocalCart(cart: Cart): ActionResponse {
         payload: { cart }
     }
 }
+
+export function clearState(): ActionResponse {
+    return {
+        type: CART_ACTIONS.CLEAR_STATE,
+        payload: {}
+    }
+}

@@ -7,7 +7,8 @@ function mapStateToProps (state: any) {
     return {
         productState: state.productState,
         authState: state.authState,
-        cartState: state.cartState
+        cartState: state.cartState,
+        userState: state.userState
     }
 }
 

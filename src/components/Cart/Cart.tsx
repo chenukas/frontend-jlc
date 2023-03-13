@@ -11,7 +11,6 @@ class Cart extends Component<any, any> {
 
     render() {
         const { cartActions, cartState: { products, qty, total, userId, id }, paymentActions, authState: { user } } = this.props;
-        console.log(products)
         return (
             <>
                 <CssBaseline />

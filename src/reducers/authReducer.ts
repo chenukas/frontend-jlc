@@ -38,6 +38,13 @@ export default function authReducer(
                 message: null,
                 error: null
             }
+        case AUTH_ACTIONS.CLEAR_STATE:
+            return {
+                ...state,
+                user: null,
+                message: null,
+                error: null
+            }
         default:
             return state;
     }

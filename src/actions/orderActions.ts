@@ -106,3 +106,10 @@ export function deleteOrderError(error: string): ActionResponse {
         payload: { error }
     }
 }
+
+export function clearState(): ActionResponse {
+    return {
+        type: ORDER_ACTIONS.CLEAR_STATE,
+        payload: {}
+    }
+}

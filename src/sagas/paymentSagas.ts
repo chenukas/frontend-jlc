@@ -1,6 +1,6 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
 import { PAYMENT_ACTIONS } from '../constants';
-import { orderActions, paymentActions } from '../actions';
+import { orderActions, paymentActions, cartActions } from '../actions';
 import { processRequest } from '../services/Api';
 import { GET_ALL_PAYMENTS, PROCESS_PAYMENT } from '../constants/api';
 import { AnyAction } from 'redux';
@@ -10,20 +10,22 @@ function* handleCreatePayment(action: AnyAction): any {
         const { payment } = action.payload;
         const requestPayload = payment;
         const { data } = yield call(processRequest, PROCESS_PAYMENT, 'POST', requestPayload);
-        console.log(data.data)
         if (data) {
             yield put(paymentActions.createPaymentSuccess(data.message));
             const state = yield select()
-            const { cartState: { products, qty, total }, authState: { user } } = state;
+            const { cartState: { products, qty, total, id }, authState: { user } } = state;
             const payment = data.data
             const { address_line1, address_city, address_country, address_zip } = payment.source;
-            console.log(user)
             yield put(orderActions.createOrder({
                 userId: user._id,
                 products: products,
                 amount: total,
                 address: `${address_line1}, ${address_city}, ${address_country} ${address_zip}`
             }))
+            if (id) {
+                yield put(cartActions.deleteCart(id))
+            }
+            yield put(cartActions.clearState())
         }
     } catch (e: any) {
         const { response } = e || {};

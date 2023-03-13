@@ -25,7 +25,14 @@ export default function paymentReducer(
                 ...state,
                 error
             }
-        default: 
+        case PAYMENT_ACTIONS.CLEAR_STATE:
+            return {
+                ...state,
+                payments: [],
+                message: null,
+                error: null
+            }
+        default:
             return state;
     }
 }

@@ -11,7 +11,6 @@ const OrderSummaryBox = ({ qty, total, createPayment, user }: any) => {
     }
 
     useEffect(() => {
-        console.log(stripeToken)
         stripeToken && createPayment({
             tokenId: stripeToken.id,
             amount: total,

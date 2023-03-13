@@ -16,5 +16,6 @@ export default keymirror({
     UPDATE_PRODUCT_ERROR: null,
     DELETE_PRODUCT: null,
     DELETE_PRODUCT_SUCCESS: null,
-    DELETE_PRODUCT_ERROR: null
+    DELETE_PRODUCT_ERROR: null,
+    CLEAR_STATE: null
 });

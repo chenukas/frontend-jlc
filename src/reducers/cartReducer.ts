@@ -54,6 +54,17 @@ export default function cartReducer(
                 ...state,
                 error
             }
+        case CART_ACTIONS.CLEAR_STATE:
+            return {
+                ...state,
+                id: null,
+                userId: null,
+                products: [],
+                qty: 0,
+                total: 0,
+                message: null,
+                error: null
+            }
         default:
             return state;
     }

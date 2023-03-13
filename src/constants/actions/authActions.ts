@@ -9,5 +9,6 @@ export default keymirror({
     REGISTER_ERROR: null,
     LOGOUT: null,
     LOGOUT_SUCCESS: null,
-    CLEAR_MESSAGE_AND_ERROR: null
+    CLEAR_MESSAGE_AND_ERROR: null,
+    CLEAR_STATE: null
 });

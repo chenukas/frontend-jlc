@@ -43,3 +43,10 @@ export function createPaymentError(error: string): ActionResponse {
         payload: { error }
     }
 }
+
+export function clearState(): ActionResponse {
+    return {
+        type: PAYMENT_ACTIONS.CLEAR_STATE,
+        payload: {}
+    }
+}

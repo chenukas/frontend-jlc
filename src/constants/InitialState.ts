@@ -13,36 +13,6 @@ export default {
     CART_STATE: {
         id: null,
         userId: null,
-        /* products: [{
-            product:
-            {
-                _id: "6407298e399654dc01205dbd",
-                title: "Product12",
-                desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum has been the industry's", "img": "https://images.pexels.com/photos/6611188/pexels-photo-6611188.jpeg",
-                categories: ["ceramic", "cup"],
-                price: 3000,
-                inStock: true,
-                createdAt: "2023-03-07T12:09:50.672Z",
-                updatedAt: "2023-03-07T12:09:50.672Z",
-                __v: 0
-            },
-            quantity: 1
-        },
-        {
-            product:
-            {
-                _id: "6407298e399654dc01205dcd",
-                title: "Product12",
-                desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum has been the industry's", "img": "https://images.pexels.com/photos/6611188/pexels-photo-6611188.jpeg",
-                categories: ["ceramic", "cup"],
-                price: 3000,
-                inStock: true,
-                createdAt: "2023-03-07T12:09:50.672Z",
-                updatedAt: "2023-03-07T12:09:50.672Z",
-                __v: 0
-            },
-            quantity: 1
-        }], */
         products: [],
         qty: 0,
         total: 0,
@@ -60,7 +30,14 @@ export default {
         error: null
     },
     USER_STATE: {
+        user: null,
         users: [],
+        message: null,
+        error: null
+    },
+    STATISTIC_STATE: {
+        userStats: [],
+        orderStats: [],
         message: null,
         error: null
     }
