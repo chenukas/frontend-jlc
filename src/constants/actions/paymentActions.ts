@@ -7,4 +7,5 @@ export default keymirror({
     PROCESS_PAYMENT: null,
     PROCESS_PAYMENT_SUCCESS: null,
     PROCESS_PAYMENT_ERROR: null,
+    CLEAR_STATE: null
 });

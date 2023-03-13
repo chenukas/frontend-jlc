@@ -20,6 +20,10 @@ const Header = ({user, logout, qty}: any) => {
         navigate('/login')
     }
 
+    const navigateProfile = () => {
+        navigate(`/profile/${user._id}`)
+    }
+
     const handleLogout = () => {
         navigate('/')
         logout()
@@ -57,7 +61,7 @@ const Header = ({user, logout, qty}: any) => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        <MenuItem onClick={handleClose} sx={{color: '#624c59', fontWeight: 'bold', fontSize: 'small'}}><AccountBoxOutlined sx={{color: '#624c59'}}/>{' '}PROFILE</MenuItem>
+                        <MenuItem onClick={navigateProfile} sx={{color: '#624c59', fontWeight: 'bold', fontSize: 'small'}}><AccountBoxOutlined sx={{color: '#624c59'}}/>{' '}PROFILE</MenuItem>
                         <MenuItem onClick={handleLogout} sx={{color: '#624c59', fontWeight: 'bold', fontSize: 'small'}}><LogoutOutlined sx={{color: '#624c59'}}/>{' '}LOGOUT</MenuItem>
                     </Menu>}
                     <Button sx={{ color: '#624c59' }} onClick={() => navigate('/carts')}><ShoppingBagOutlined />{' '}{qty}</Button>

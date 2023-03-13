@@ -113,3 +113,10 @@ export function deleteProductError(error: string): ActionResponse {
         payload: { error }
     }
 }
+
+export function clearState(): ActionResponse {
+    return {
+        type: PRODUCT_ACTIONS.CLEAR_STATE,
+        payload: {}
+    }
+}

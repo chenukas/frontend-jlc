@@ -15,5 +15,6 @@ export default keymirror({
     DELETE_CART_ERROR: null,
     ADD_PRODUCT_TO_CART: null,
     REMOVE_PRODUCT_FROM_CART: null,
-    UPDATE_LOCAL_CART: null
+    UPDATE_LOCAL_CART: null,
+    CLEAR_STATE: null
 });

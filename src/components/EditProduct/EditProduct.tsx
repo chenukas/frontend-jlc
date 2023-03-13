@@ -3,9 +3,7 @@ import { styled } from '@mui/material/styles';
 import { Box, Grid, Typography, Divider, Button, TextField, FormControlLabel, Checkbox } from '@mui/material';
 import { useNavigate, useParams } from "react-router-dom";
 import { Product } from "../../types";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { uploadToFirebase } from "../../services/Firebase";
-import { LOCAL_STORAGE } from "../../constants";
 
 const Img = styled('img')({
     margin: 'auto',

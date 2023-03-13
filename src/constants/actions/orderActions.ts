@@ -16,5 +16,6 @@ export default keymirror({
     UPDATE_ORDER_ERROR: null,
     DELETE_ORDER: null,
     DELETE_ORDER_SUCCESS: null,
-    DELETE_ORDER_ERROR: null
+    DELETE_ORDER_ERROR: null,
+    CLEAR_STATE: null
 });

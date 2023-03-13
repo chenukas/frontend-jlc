@@ -3,7 +3,6 @@ import { RemoveShoppingCartOutlined } from '@mui/icons-material';
 
 
 const CartItem = ({ product, removeProductFromCart }: any) => {
-    console.log(product)
 
     return (
         <Card sx={{ display: 'flex', mb: 5 }}>

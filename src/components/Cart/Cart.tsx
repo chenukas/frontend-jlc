@@ -1,7 +1,6 @@
 import { Component } from "react";
-import { Box, Button, Container, CssBaseline, Grid } from '@mui/material';
+import { Button, Container, CssBaseline, Grid } from '@mui/material';
 import { CartItem, OrderSummaryBox } from '../../components'
-import { LOCAL_STORAGE } from "../../constants";
 
 class Cart extends Component<any, any> {
     constructor(props: any) {
@@ -11,7 +10,6 @@ class Cart extends Component<any, any> {
 
     render() {
         const { cartActions, cartState: { products, qty, total, userId, id }, paymentActions, authState: { user } } = this.props;
-        console.log(products)
         return (
             <>
                 <CssBaseline />

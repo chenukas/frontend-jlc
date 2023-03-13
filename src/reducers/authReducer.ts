@@ -25,16 +25,17 @@ export default function authReducer(
                 ...state,
                 error
             };
-        case AUTH_ACTIONS.LOGOUT_SUCCESS:
-            return {
-                ...state,
-                user: null,
-                message: null,
-                error: null
-            }
         case AUTH_ACTIONS.CLEAR_MESSAGE_AND_ERROR:
             return {
                 ...state,
+                message: null,
+                error: null
+            }
+        case AUTH_ACTIONS.LOGOUT_SUCCESS:
+        case AUTH_ACTIONS.CLEAR_STATE:
+            return {
+                ...state,
+                user: null,
                 message: null,
                 error: null
             }
