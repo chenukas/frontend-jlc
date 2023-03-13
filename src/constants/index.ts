@@ -8,7 +8,7 @@ import INITIAL_STATE from './InitialState';
 import LOCAL_STORAGE from './LocalStorage';
 import USER_ACTIONS from './actions/userActions';
 
-export const BASE_API_URL = 'http://localhost:5000/api'
+export const BASE_API_URL = 'https://jeans-lab-collection.onrender.com/api'
 
 export {
     PRODUCT_ACTIONS,
