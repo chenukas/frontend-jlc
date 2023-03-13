@@ -32,7 +32,7 @@ class Home extends Component<any, any> {
                         }}
                     >
                         {products && products.map((product: any) => (
-                            <PaperItem key={product._id} product={product} productActions={productActions} isAdmin={true} />
+                            <PaperItem key={product._id} product={product} productActions={productActions} />
                         ))}
                     </Box>
                 </Box>

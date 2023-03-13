@@ -3,9 +3,7 @@ import { styled } from '@mui/material/styles';
 import { Box, Grid, Typography, Divider, Button, TextField, FormControlLabel, Checkbox } from '@mui/material';
 import { useNavigate, useParams } from "react-router-dom";
 import { Product } from "../../types";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { uploadToFirebase } from "../../services/Firebase";
-import { LOCAL_STORAGE } from "../../constants";
 
 const Img = styled('img')({
     margin: 'auto',
@@ -16,11 +14,10 @@ const Img = styled('img')({
 
 export interface Props {
     product: Product,
-    isAdmin: boolean,
     productActions: any
 }
 
-const EditProduct = ({ product, isAdmin, productActions }: Props) => {
+const EditProduct = ({ product, productActions }: Props) => {
 
     const navigate = useNavigate();
 
@@ -135,7 +132,7 @@ const EditProduct = ({ product, isAdmin, productActions }: Props) => {
                                 }} onChange={handleChangeCheckbox} />} label="In Stock" sx={{ color: '#1f1f20' }} />
                                 <Divider sx={{ mt: 5, mb: 2.5 }} />
                                 <Typography variant="h4" gutterBottom align='left' color={'#8585ad'}>
-                                    LKR{' '}{inputs.price}
+                                    AUD{' '}{inputs.price}
                                 </Typography>
                                 <TextField id="outlined-basic" label="Price" variant="outlined" name="price" value={inputs.price} sx={{ color: '#624c59', mb: 1 }} fullWidth type={"number"} onChange={handleChange} />
                                 <Button sx={{ color: '#624c59', border: '1px solid #624c59', marginRight: 1 }} onClick={() => handleOnSubmit()}>Save</Button>

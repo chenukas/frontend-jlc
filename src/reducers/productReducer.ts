@@ -39,7 +39,14 @@ export default function productReducer(
                 ...state,
                 error
             }
-        default: 
+        case PRODUCT_ACTIONS.CLEAR_STATE:
+            return {
+                ...state,
+                product: null,
+                message: null,
+                error: null
+            }
+        default:
             return state;
     }
 }

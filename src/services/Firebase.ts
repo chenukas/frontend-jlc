@@ -1,25 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAukt7eb-wjVFNfOjK7Xx6hYha22FRsiB8",
-  authDomain: "jean-s-lc.firebaseapp.com",
-  projectId: "jean-s-lc",
-  storageBucket: "jean-s-lc.appspot.com",
-  messagingSenderId: "1052751455027",
-  appId: "1:1052751455027:web:861cb58c69d8f9d2d81446",
-  measurementId: "G-58TD1L6J6S"
-};
+const firebaseConfig = JSON.parse(process.env.REACT_APP_FIREBASE_CONFIG!);
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 export const uploadToFirebase = (filename: string, file: any, metadata: any, setUrl: Function) => {
     const storage = getStorage(app);

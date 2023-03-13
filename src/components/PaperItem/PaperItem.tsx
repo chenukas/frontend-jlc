@@ -24,7 +24,7 @@ const PaperItem = (props: any) => {
                     {product.title}
                 </Typography>
                 <Typography variant="button" align='left' color={'#8585ad'}>
-                    LKR{' '}{product.price}
+                    AUD{' '}{product.price}
                 </Typography>
             </CardContent>
         </Card></Paper></>

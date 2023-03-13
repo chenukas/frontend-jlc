@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
-import { Box, Stack, Button, Grid, List, ListItem, IconButton, ListItemAvatar, Typography, TextField, Divider, FormControlLabel, Checkbox } from '@mui/material';
+import { Box, Button, Grid, Typography, TextField, Divider } from '@mui/material';
 import { ProductTable } from '../../components';
 import { uploadToFirebase } from '../../services/Firebase';
 
