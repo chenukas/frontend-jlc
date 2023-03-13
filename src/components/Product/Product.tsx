@@ -41,7 +41,7 @@ class Product extends Component<any, any> {
     }
 
     render() {
-        const { productState: { product }, authState: { isAdmin } } = this.props;
+        const { productState: { product }, authState: { user } } = this.props;
         return (
             <Box sx={{ flexGrow: 1, mt: 10 }}>
                 <Grid container spacing={3} sx={{ p: 10 }}>
@@ -80,7 +80,7 @@ class Product extends Component<any, any> {
                                         Out of stock!
                                     </Typography> }
                                     <Button sx={{ color: '#624c59', border: '1px solid #624c59', marginRight: 1 }} disabled={!product.inStock} >Add to cart</Button>
-                                    {isAdmin && (<>
+                                    {user && user.isAdmin && (<>
                                         <Button sx={{ color: '#624c59', border: '1px solid #624c59', marginRight: 1 }} onClick={() => this.navigateEditProduct(product._id)}>Edit</Button>
                                         <Button sx={{ color: '#624c59', border: '1px solid #624c59', marginRight: 1 }} onClick={() => this.handleOnDelete(product._id)}>Delete</Button>
                                     </>)}
