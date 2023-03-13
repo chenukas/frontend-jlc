@@ -1,22 +1,29 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
-import { LOCAL_STORAGE, PAYMENT_ACTIONS } from '../constants';
-import { paymentActions } from '../actions';
+import { takeEvery, put, call, select } from 'redux-saga/effects';
+import { PAYMENT_ACTIONS } from '../constants';
+import { orderActions, paymentActions } from '../actions';
 import { processRequest } from '../services/Api';
 import { GET_ALL_PAYMENTS, PROCESS_PAYMENT } from '../constants/api';
 import { AnyAction } from 'redux';
-
-const header = { 
-    'Accept': 'application/json', 
-    'Authorization' : `Bearer ${localStorage.getItem(LOCAL_STORAGE.ACCESS_TOKEN)}` 
-}
 
 function* handleCreatePayment(action: AnyAction): any {
     try {
         const { payment } = action.payload;
         const requestPayload = payment;
-        const { data } = yield call(processRequest, PROCESS_PAYMENT, 'POST', requestPayload, header);
+        const { data } = yield call(processRequest, PROCESS_PAYMENT, 'POST', requestPayload);
+        console.log(data.data)
         if (data) {
             yield put(paymentActions.createPaymentSuccess(data.message));
+            const state = yield select()
+            const { cartState: { products, qty, total }, authState: { user } } = state;
+            const payment = data.data
+            const { address_line1, address_city, address_country, address_zip } = payment.source;
+            console.log(user)
+            yield put(orderActions.createOrder({
+                userId: user._id,
+                products: products,
+                amount: total,
+                address: `${address_line1}, ${address_city}, ${address_country} ${address_zip}`
+            }))
         }
     } catch (e: any) {
         const { response } = e || {};
@@ -28,7 +35,7 @@ function* handleCreatePayment(action: AnyAction): any {
 
 function* handleGetAllPayments(action: AnyAction): any {
     try {
-        const { data } = yield call(processRequest, GET_ALL_PAYMENTS, 'GET', {}, header);
+        const { data } = yield call(processRequest, GET_ALL_PAYMENTS, 'GET', {});
         if (data) {
             yield put(paymentActions.getAllPaymentsSuccess(data.data));
         }

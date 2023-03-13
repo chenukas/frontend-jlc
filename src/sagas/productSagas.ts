@@ -1,14 +1,9 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
-import { LOCAL_STORAGE, PRODUCT_ACTIONS } from '../constants';
+import { PRODUCT_ACTIONS } from '../constants';
 import { productActions } from '../actions';
 import { processRequest } from '../services/Api';
 import { GET_ALL_PRODUCTS, GET_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT } from '../constants/api';
 import { AnyAction } from 'redux';
-
-const header = { 
-    'Accept': 'application/json', 
-    'Authorization' : `Bearer ${localStorage.getItem(LOCAL_STORAGE.ACCESS_TOKEN)}` 
-}
 
 function* handleGetAllProducts(action: AnyAction): any {
     try {
@@ -43,7 +38,7 @@ function* handleCreateProduct(action: AnyAction): any {
     try {
         const { product } = action.payload;
         const requestPayload = product;
-        const { data } = yield call(processRequest, CREATE_PRODUCT, 'POST', requestPayload, header);
+        const { data } = yield call(processRequest, CREATE_PRODUCT, 'POST', requestPayload);
         if (data) {
             yield put(productActions.createProductSuccess(data.message));
             yield put(productActions.getAllProducts());
@@ -60,7 +55,7 @@ function* handleUpdateProduct(action: AnyAction): any {
     try {
         const { id, product } = action.payload;
         const requestPayload = product;
-        const { data } = yield call(processRequest, UPDATE_PRODUCT(id), 'PUT', requestPayload, header);
+        const { data } = yield call(processRequest, UPDATE_PRODUCT(id), 'PUT', requestPayload);
         if (data) {
             yield put(productActions.updateProductSuccess(data.message));
         }
@@ -75,7 +70,7 @@ function* handleUpdateProduct(action: AnyAction): any {
 function* handleDeleteProduct(action: AnyAction): any {
     try {
         const { id } = action.payload;
-        const { data } = yield call(processRequest, DELETE_PRODUCT(id), 'DELETE', {}, header);
+        const { data } = yield call(processRequest, DELETE_PRODUCT(id), 'DELETE', {});
         if (data) {
             yield put(productActions.deleteProductSuccess(data.message));
             yield put(productActions.getAllProducts());

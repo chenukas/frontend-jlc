@@ -13,6 +13,8 @@ import PaymentPanel from "./PaymentPanel/PaymentPanel";
 import PaymentTable from "./PaymentTable/PaymentTable";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
+import CartItem from "./CartItem/CartItem";
+import OrderSummaryBox from "./OrderSummaryBox/OrderSummaryBox";
 
 export {
     App,
@@ -29,5 +31,7 @@ export {
     PaymentPanel,
     PaymentTable,
     Login,
-    Register
+    Register,
+    CartItem,
+    OrderSummaryBox,
 }

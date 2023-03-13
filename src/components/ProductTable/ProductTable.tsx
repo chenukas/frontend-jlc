@@ -43,7 +43,7 @@ const ProductTable = (props: any) => {
                             <TableCell component="th" scope="row">
                                 {product.title}
                             </TableCell>
-                            <TableCell>LKR {product.price}</TableCell>
+                            <TableCell>AUD {product.price}</TableCell>
                             <TableCell>{product.inStock ? 'Yes' : 'No'}</TableCell>
                             <TableCell align="center"><IconButton onClick={()=> navigateEditProduct(product._id)}><ModeEditOutlineOutlined /></IconButton></TableCell>
                             <TableCell align="center"><IconButton onClick={()=> handleOnDelete(product._id)}><DeleteOutlineOutlined /></IconButton></TableCell>

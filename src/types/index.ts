@@ -5,7 +5,8 @@ export interface Product {
     img: string,
     categories: Array<string>,
     price: number,
-    inStock: boolean
+    inStock: boolean,
+    quantity?: number 
 }
 
 export interface User {
@@ -17,6 +18,23 @@ export interface User {
     password: string,
     isAdmin?: boolean,
     accessToken?: string
+}
+
+export interface Cart {
+    _id?: string,
+    userId?: string,
+    products: Array<Product>,
+    qty: number,
+    total: number
+}
+
+export interface Order {
+    _id?: string,
+    userId?: string,
+    products: Array<Product>,
+    amount: number,
+    address: string,
+    status?: string
 }
 
 export type ActionResponse = {

@@ -31,11 +31,11 @@ class App extends Component<any, any> {
     }
 
     render() {
-        const { productState: { product }, authState: { user , message, error }, productActions, authActions } = this.props;
+        const { productState: { product }, authState: { user , message, error }, productActions, authActions, cartState: { qty } } = this.props;
 
         return (
             <Router>
-                <Header user={user} logout={authActions.logout}/>
+                <Header user={user} logout={authActions.logout} qty={qty}/>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login user={user} authActions={authActions} message={message} error={error}/>} />
