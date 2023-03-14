@@ -16,6 +16,15 @@ This is the frontend implementation of 'Jean's LC.' handmade craft shop
 
 * Run `yarn test` inside root folder
 
+* For UI testing,
+    * Create an account/use credentials provided
+        * Admin:
+            `username: adminuser`
+            `password: adminuser`
+        * User
+            `username: customeruser`
+            `password: customeruser`
+            
 ### CI/CD, Deployment
 
 * GitHub Workflow is created to deploy the application automatically to Firebase using GitHub actions
