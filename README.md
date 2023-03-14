@@ -20,3 +20,5 @@ This is the frontend implementation of 'Jean's LC.' handmade craft shop
 
 * GitHub Workflow is created to deploy the application automatically to Firebase using GitHub actions
 * Hosted URL : [https://jeans-lc-827af.web.app/]
+* SonarCloud is configured to scan every pull request before merge
+* SonarCloud report : [https://sonarcloud.io/summary/overall?id=chenukas_frontend-jlc]
