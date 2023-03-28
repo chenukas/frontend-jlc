@@ -40,7 +40,7 @@ class App extends Component<any, any> {
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login user={user} authActions={authActions} message={message} error={error} />} />
                     <Route path="/register" element={<Register authActions={authActions} message={message} error={error} />} />
-                    {/* <Route path="/dashboard/:view?" element={<ProtectedRouteWithAdmin><Dashboard /></ProtectedRouteWithAdmin>} /> */}
+                    <Route path="/dashboard/:view?" element={<ProtectedRouteWithAdmin><Dashboard /></ProtectedRouteWithAdmin>} />
                     <Route path="/products/find/:id" element={<Product />} />
                     <Route path="/products/edit/:id" element={<ProtectedRouteWithAdmin><EditProduct product={product} productActions={productActions} /></ProtectedRouteWithAdmin>} />
                     <Route path="/carts" element={<Cart />} />
