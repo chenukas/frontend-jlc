@@ -1,6 +1,6 @@
 export default {
     AUTH_STATE: {
-        user: localStorage.getItem('jlc_user') ? JSON.parse(localStorage.getItem('jlc_user')!) : null,
+        user: localStorage.getItem('jlc_user') && JSON.parse(localStorage.getItem('jlc_user')!),
         message: null,
         error: null
     },
